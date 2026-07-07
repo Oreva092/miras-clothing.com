@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Mira's Clothing</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <header id="mainHeader" class="bg-white fixed z-40 top-0 right-0 left-0 pt-2 px-2 sm:top-0 transition-all duration-500 ease-in-out">
+        <nav class="flex flex-row justify-between items-center sm:justify-between sm:pl-2 md:justify-between lg:justify-between lg:px-5">
+        <div>
+            <img src="src/images/logo1.png" alt="logo_1" class="w-20 h-10 sm:w-28 sm:h-12 md:w-32 md:h-14">
+        </div>
+        <ul class="hidden lg:block lg:flex lg:flex-row lg:space-x-16">
+            <li class="font-poppins"><a href="index.html">HOME</a></li>
+            <li class="font-poppins"><a href="shop.html">SHOP</a></li>
+            <li class="font-poppins"><a href="blog.html">BLOG</a></li>
+            <li class="font-poppins"><a href="about.html">ABOUT US</a></li>
+            <li class="font-poppins"><a href="contact.html">CONTACT US</a></li>
+        </ul>
+        <div class="flex flex-row">
+            <div class="ml-auto flex flex-row space-x-5 sm:space-x-10">
+              <a href="wishlist.html">
+                <i id="navHeart" class="icon ph ph-heart cursor-pointer text-2xl sm:text-xl"></i>
+              </a>
+              <a href="cart.html">
+                <i class="icon ph ph-bag cursor-pointer text-2xl sm:text-lg"></i>
+              </a>
+              <div class="relative group">
+                <i class="icon ph ph-user cursor-pointer text-2xl sm:text-xl"></i>
+                <div class="absolute right-0 mt-4 w-64 bg-white shadow-xl rounded-md opacity-0 translate-y-3 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+                  <div class="p-4 border-b">
+                    <p class="text-sm font-poppins font-semibold" id="navUserGreeting">
+                      <a href="signin.html" class="cursor-pointer hover:underline">Sign In</a>
+                    </p>
+                  </div>
+                  <ul class="py-2 text-sm">
+                    <li class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer"><a href="account.html">My Account</a></li>
+                    <li id="navAdminBtn" class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer hidden"><a href="admin.html">Admin Dashboard</a></li>
+                    <li id="navLogoutBtn" class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer hidden">Logout</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="ml-3 mr-3 relative w-6 h-6 sm:ml-5 lg:hidden">
+              <i id="openBtn" class="ph ph-list absolute inset-0 text-2xl cursor-pointer sm:text-xl"></i>
+              <i id="closeBtn" class="ph ph-x absolute inset-0 text-2xl cursor-pointer hidden sm:text-xl"></i>
+            </div>
+          </div>
+        </nav>
+  
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="fixed z-40 left-2 right-3 bg-[#404040] py-5 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out lg:hidden">
+          <ul class="flex flex-col spacey-4 px-6 text-lg">
+            <li class="pb-5 font-poppins text-sm"><a href="index.html" class="text-white">HOME</a></li>
+            <li class="pb-5 font-poppins text-sm"><a href="shop.html" class="text-white">SHOP</a></li>
+            <li class="pb-5 font-poppins text-sm"><a href="blog.html" class="text-white">BLOG</a></li>
+            <li class="pb-5 font-poppins text-sm"><a href="about.html" class="text-white">ABOUT US</a></li>
+            <li class="font-poppins text-sm"><a href="contact.html" class="text-white">CONTACT US</a></li>
+          </ul>
+        </div>
+    </header>
+
+    <section class="mt-10 min-h-screen flex items-center justify-center bg-[#fafafa] px-4 py-10">
+      <div class="px-4 py-16 bg-white shadow-lg rounded-lg">
+        
+        <!-- Logo -->
+        <div class="text-center mb-6">
+          <img src="src/images/logo1.png" alt="Mira's Clothing" class="w-28 h-14 mx-auto">
+          <p class="font-poppins text-gray-500 text-sm mt-2">Welcome to Mira's Clothing</p>
+        </div>
+    
+        <!-- Toggle Buttons -->
+        <div class="flex space-x-3 mb-6 border-b">
+          <button id="showSignIn" class="w-1/2 py-2 font-poppins font-semibold text-sm border-b-2 border-[#e36d3b] text-[#e36d3b]">Sign In</button>
+          <button id="showSignUp" class="w-1/2 py-2 font-poppins font-semibold text-sm text-gray-400">Sign Up</button>
+        </div>
+    
+        <!-- Sign In Form -->
+        <form id="loginForm" class="space-y-4">
+          <div class="relative">
+            <i class="ph ph-envelope absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="email" id="loginEmail" placeholder="Email" required
+              class="w-full border border-gray-200 pl-10 pr-4 py-3 rounded-md focus:outline-none focus:border-[#e36d3b] font-poppins text-sm">
+          </div>
+          <div class="relative">
+            <i class="ph ph-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="password" id="loginPassword" placeholder="Password" required
+              class="w-full border border-gray-200 pl-10 pr-4 py-3 rounded-md focus:outline-none focus:border-[#e36d3b] font-poppins text-sm">
+          </div>
+          <button type="submit"
+            class="w-full bg-[#e36d3b] text-white py-3 rounded-md hover:bg-orange-700 transition font-poppins text-sm tracking-wider">
+            SIGN IN
+          </button>
+          <div class="relative flex items-center justify-center my-2">
+            <div class="border-t border-gray-200 w-full"></div>
+            <span class="bg-white px-3 text-gray-400 text-xs font-poppins absolute">OR</span>
+          </div>
+          <div id="googleSignIn" class="flex justify-center"></div>
+        </form>
+    
+        <!-- Sign Up Form (hidden by default) -->
+        <form id="registerForm" class="space-y-4 hidden">
+          <div class="relative">
+            <i class="ph ph-user absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="text" id="registerName" placeholder="Full Name" required
+              class="w-full border border-gray-200 pl-10 pr-4 py-3 rounded-md focus:outline-none focus:border-[#e36d3b] font-poppins text-sm">
+          </div>
+          <div class="relative">
+            <i class="ph ph-envelope absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="email" id="registerEmail" placeholder="Email" required
+              class="w-full border border-gray-200 pl-10 pr-4 py-3 rounded-md focus:outline-none focus:border-[#e36d3b] font-poppins text-sm">
+          </div>
+          <div class="relative">
+            <i class="ph ph-lock absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="password" id="registerPassword" placeholder="Password" required
+              class="w-full border border-gray-200 pl-10 pr-4 py-3 rounded-md focus:outline-none focus:border-[#e36d3b] font-poppins text-sm">
+          </div>
+          <button type="submit"
+            class="w-full bg-[#e36d3b] text-white py-3 rounded-md hover:bg-orange-700 transition font-poppins text-sm tracking-wider">
+            CREATE ACCOUNT
+          </button>
+        </form>
+    
+        <!-- Footer text -->
+        <p class="text-center text-xs font-poppins text-gray-400 mt-6">
+          By continuing you agree to Mira's Clothing <span class="underline cursor-pointer">Terms & Privacy</span>
+        </p>
+    
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+    <script src="src/signin.js"></script>
+    <script src="src/cart.js"></script>
+    <script type="module" src="src/wishlist.js"></script>
+</body>
+</html>

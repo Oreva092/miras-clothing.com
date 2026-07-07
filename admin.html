@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Mira's Clothing</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+</head>
+<body class="bg-[#fafafa]">
+
+    <header id="mainHeader" class="bg-white fixed z-40 top-0 right-0 left-0 pt-2 px-2 transition-all duration-500 ease-in-out shadow-sm">
+        <nav class="flex flex-row justify-between items-center lg:px-5 py-2">
+        <div>
+            <img src="src/images/logo1.png" alt="logo_1" class="w-20 h-10 sm:w-28 sm:h-12">
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="font-poppins text-sm text-gray-500">Admin Dashboard</span>
+            <a href="index.html" class="font-poppins text-sm text-[#e36d3b] hover:underline">← Back to Site</a>
+        </div>
+        </nav>
+    </header>
+
+    <div class="mt-20 p-6 max-w-7xl mx-auto">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div class="bg-white rounded-xl pl-2 shadow-sm border border-gray-100">
+                <div class="flex items-center gap-3 mb-2">
+                    <i class="ph ph-package text-2xl text-[#e36d3b]"></i>
+                    <p class="font-poppins text-sm text-gray-500">
+                        Products
+                    </p>
+                </div>
+                <h3 id="totalProducts" class="font-poppins font-bold text-2xl">-</h3>
+            </div>
+            <div class="bg-white rounded-xl pl-2 shadow-sm border border-gray-100">
+                <div class="flex items-center gap-3 mb-2">
+                    <i class="ph ph-shopping-bag text-2xl text-[#e36d3b]"></i>
+                    <p class="font-poppins text-sm text-gray-500">
+                        Orders
+                    </p>
+                </div>
+                <h3 id="totalOrders" class="font-poppins font-bold text-2xl">-</h3>
+            </div>
+            <div class="bg-white rounded-xl pl-2 shadow-sm border border-gray-100">
+                <div class="flex items-center gap-3 mb-2">
+                    <i class="ph ph-users text-2xl text-[#e36d3b]"></i>
+                    <p class="font-poppins text-sm text-gray-500">
+                        Subscribers
+                    </p>
+                </div>
+                <h3 id="totalSubscribers" class="font-poppins font-bold text-2xl">-</h3>
+            </div>
+            <div class="bg-white rounded-xl pl-2 shadow-sm border border-gray-100">
+                <div class="flex items-center gap-3 mb-2">
+                    <i class="ph ph-currency-ngn text-2xl text-[#e36d3b]"></i>
+                    <p class="font-poppins text-sm text-gray-500">
+                        Revenue
+                    </p>
+                </div>
+                <h3 id="totalRevenue" class="font-poppins font-bold text-2xl">-</h3>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex gap-2 mb-6 border-b overflow-x-auto">
+            <button data-tab="products" class="admin-tab font-poppins text-sm px-4 py-2 border-b-2 border-[#e36d3b] text-[#e36d3b]">Products</button>
+            <button data-tab="orders" class="admin-tab font-poppins text-sm px-4 py-2 text-gray-400">Orders</button>
+            <button data-tab="subscribers" class="admin-tab font-poppins text-sm px-4 py-2 text-gray-400">Subscribers</button>
+            <button data-tab="users" class="admin-tab font-poppins text-sm px-4 py-2 text-gray-400">Users</button>
+        </div>
+
+        <!-- Products Tab -->
+        <div id="tab-products" class="admin-content">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="font-poppins font-semibold text-lg">All Products</h2>
+                <button id="addProductBtn" class="bg-[#e36d3b] text-white font-poppins text-sm px-4 py-2 rounded-full hover:bg-orange-700 transition flex items-center gap-2"><i class="ph ph-plus"></i> Add Product</button>
+            </div>
+
+            <!-- Add Product Form -->
+            <div id="addProductForm" class="hidden bg-white rounded-xl p-6 mb-6 border border-gray-100 shadow-sm">
+                <h3 class="font-poppins font-semibold mb-4">Add New Product</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input id="pTitle" type="text" placeholder="Product Title" class="border border-gray-200 px-4 py-2 rounded-lg font-poppins text-sm focus:outline-none focus:border-[#e36d3b]">
+
+                    <input id="pBrand" type="text" placeholder="Brand" class="border border-gray-200 px-4 py-2 rounded-lg font-poppins text-sm focus:outline-none focus:border-[#e36d3b]">
+
+                    <input id="pPrice" type="number" placeholder="Price (₦000)" class="border border-gray-200 px-4 py-2 rounded-lg font-poppins text-sm focus:outline-none focus:border-[#e36d3b]">
+
+                    <input id="pImage" type="text" placeholder="Image URL" class="border border-gray-200 px-4 py-2 rounded-lg font-poppins text-sm focus:outline-none focus:border-[#e36d3b]">
+
+                    <input id="pCategory" type="text" placeholder="Category" class="border border-gray-200 px-4 py-2 rounded-lg font-poppins text-sm focus:outline-none focus:border-[#e36d3b]">
+
+                    <select id="pRating" class="border border-gray-200 px-4 py-2 rounded-lg font-poppins text-sm focus:outline-none focus:border-[#e36d3b]">
+                        <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
+                        <option value="4" selected>⭐⭐⭐⭐ 4 Stars</option>
+                        <option value="3">⭐⭐⭐ 3 Stars</option>
+                        <option value="2">⭐⭐ 2 Stars</option>
+                        <option value="1">⭐ 1 Star</option>
+                    </select>
+
+                    <textarea id="pDescription" placeholder="Description" rows="3" class="border border-gray-200 px-4 py-2 rounded-lg font-poppins text-sm focus:outline-none focus:border-[#e36d3b] sm:col-span-2"></textarea>
+                    <div class="flex gap-4 items-center">
+                        <label class="flex items-center gap-2 font-poppins text-sm cursor-pointer">
+                        <input type="checkbox" id="pIsNew"> New Arrival
+                        </label>
+                        <label class="flex items-center gap-2 font-poppins text-sm cursor-pointer">
+                        <input type="checkbox" id="pSoldOut"> Sold Out
+                        </label>
+                    </div>
+                </div>
+                <div class="flex gap-3 mt-4">
+                    <button id="saveProductBtn" class="bg-[#e36d3b] text-white font-poppins text-sm px-6 py-2 rounded-full hover:bg-orange-700 transition">Save Product</button>
+                    <button id="cancelProductBtn" class="border border-gray-200 font-poppins text-sm px-6 py-2 rounded-full hover:bg-gray-50 transition">Cancel</button>
+                </div>
+            </div>
+
+            <div id="productsList" class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                <div class="text-center py-10">
+                    <i class="ph ph-circle-notch text-3xl text-gray-300 animate-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Tab -->
+        <div id="tab-orders" class="admin-content hidden">
+            <h2 class="font-poppins font-semibold text-lg mb-4">All Orders</h2>
+            <div id="ordersList" class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                <div class="text-center py-10">
+                    <i class="ph ph-circle-notch text-3xl text-gray-300 animate-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subscribers Tab -->
+        <div id="tab-subscribers" class="admin-content hidden">
+            <h2 class="font-poppins font-semibold text-lg mb-4">All Subscribers</h2>
+            <div id="subscribersList" class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                <div class="text-center py-10">
+                <i class="ph ph-circle-notch text-3xl text-gray-300 animate-spin"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Tab -->
+        <div id="tab-users" class="admin-content hidden">
+            <h2 class="font-poppins font-semibold text-lg mb-4">All Users</h2>
+            <div id="usersList" class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                <div class="text-center py-10">
+                    <i class="ph ph-circle-notch text-3xl text-gray-300 animate-spin"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <button id="scrollTopBtn" class="fixed bottom-8 right-8 bg-[#e36d3b] text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 z-50 hover:bg-orange-700">
+        <i class="ph ph-arrow-up text-xl"></i>
+    </button>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/cart.js"></script>
+    <script type="module" src="/src/wishlist.js"></script>
+    <script type="module" src="/src/admin.js"></script>
+</body>
+</html>

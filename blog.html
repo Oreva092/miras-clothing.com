@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Mira's Clothing</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <script src="https://kit.fontawesome.com/b55bbba4f4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header id="mainHeader" class="bg-white fixed z-40 top-0 right-0 left-0 pt-2 px-2 sm:top-0 transition-all duration-500 ease-in-out">
+    <nav class="flex flex-row justify-between items-center sm:justify-between sm:pl-2 md:justify-between lg:justify-between lg:px-5">
+      <div>
+        <img src="src/images/logo1.png" alt="logo_1" class="w-20 h-10 sm:w-28 sm:h-12 md:w-32 md:h-14">
+      </div>
+      <ul class="hidden lg:block lg:flex lg:flex-row lg:space-x-16">
+        <li class="font-poppins"><a href="index.html">HOME</a></li>
+        <li class="font-poppins"><a href="shop.html">SHOP</a></li>
+        <li class="font-poppins"><a href="blog.html">BLOG</a></li>
+        <li class="font-poppins"><a href="about.html">ABOUT US</a></li>
+        <li class="font-poppins"><a href="contact.html">CONTACT US</a></li>
+      </ul>
+      <div class="flex flex-row">
+        <div class="ml-auto flex flex-row space-x-5 sm:space-x-10">
+          <a href="wishlist.html">
+            <i id="navHeart" class="icon ph ph-heart cursor-pointer text-2xl sm:text-xl"></i>
+          </a>
+          <a href="cart.html">
+            <i class="icon ph ph-bag cursor-pointer text-2xl sm:text-lg"></i>
+          </a>
+          <div class="relative group">
+            <img id="userAvatar" class="w-8 h-8 rounded-full hidden cursor-pointer" />
+            <i id="userIcon" class="icon ph ph-user cursor-pointer text-2xl sm:text-xl"></i>
+            <div class="absolute right-0 mt-4 w-64 bg-white shadow-xl rounded-md opacity-0 translate-y-3 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+              <div class="p-4 border-b">
+                <p class="text-sm font-poppins font-semibold" id="navUserGreeting">
+                  <a href="signin.html" id="navSignInLink" class="cursor-pointer hover:underline">Sign In</a>
+                </p>
+              </div>
+              <ul class="py-2 text-sm">
+                <li class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer"><a href="account.html">My Account</a></li>
+                <li id="navAdminBtn" class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer hidden"><a href="admin.html">Admin Dashboard</a></li>
+                <li id="navLogoutBtn" class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer hidden">Logout</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="ml-3 mr-3 relative w-6 h-6 sm:ml-5 lg:hidden">
+          <i id="openBtn" class="ph ph-list absolute inset-0 text-2xl cursor-pointer sm:text-xl"></i>
+          <i id="closeBtn" class="ph ph-x absolute inset-0 text-2xl cursor-pointer hidden sm:text-xl"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="fixed z-40 left-2 right-3 bg-[#404040] py-5 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out lg:hidden">
+      <ul class="flex flex-col spacey-4 px-6 text-lg">
+        <li class="pb-5 font-poppins text-sm"><a href="index.html" class="text-white">HOME</a></li>
+        <li class="pb-5 font-poppins text-sm"><a href="shop.html" class="text-white">SHOP</a></li>
+        <li class="pb-5 font-poppins text-sm"><a href="blog.html" class="text-white">BLOG</a></li>
+        <li class="pb-5 font-poppins text-sm"><a href="about.html" class="text-white">ABOUT US</a></li>
+        <li class="font-poppins text-sm"><a href="contact.html" class="text-white">CONTACT US</a></li>
+      </ul>
+    </div>
+  </header>
+    
+    <nav class="mt-12 bg-[#ff8e78] py-5 px-4 md:mt-16">
+      <div class="flex justify-between items-center sm:px-5 md:max-w-5xl md:m-auto">
+        <h2 class="font-instrument text-white tracking-widest text-base font-semibold">BLOG DETAILS</h2>
+        <p class="text-white font-instrument tracking-widest text-base font-semibold">
+          <a href="index.html">HOME</a><span class="pl-2 pr-2"> / </span> BLOG 
+        </p>
+      </div>
+    </nav>
+
+
+    <section class="mt-10 px-4">
+      <div class="md:px-20 lg:px-48">
+        <h1 class="font-instrument text-center font-bold text-2xl mb-10 lg:text-4xl">The New Standard of Modern Luxury</h1>
+        <h4 class="font-instrument text-center text-xl mb-10 md:text-2xl lg:text-3xl lg:tracking-wider">Curated silhouettes for the discerning woman. Experience a fusion of architectural precision and effortless elegance in every thread.</h4>
+        <p class="font-poppins mb-10 text-base">
+          The shift in seasons brings a renewed focus on the art of layering and the tactile beauty of premium textiles. From the liquid-like drape of our Onyx Column Gown to the structured, sharp lines of the Midnight Sculpted Blazer, our latest collection is a celebration of the multifaceted woman. We believe that true luxury isn't just seen—it is felt.
+        </p>
+        <p class="font-instrument text-lg text-gray-500 mb-10 text-center">
+          "Do not fear the depth of a monochromatic palette. A singular tone, when expressed through varied textures like silk and structured wool, creates a visual language that is both commanding and sophisticated. It’s about injecting intentionality into your wardrobe."
+        </p>
+        <p class="font-poppins text-base reveal">
+          Our designers have meticulously sourced the finest Italian wool-crepes and sustainable vegan leathers to create pieces that transition seamlessly from a high-stakes boardroom to an intimate evening gala. Take, for instance, our Ruby Silk Utility Blouse—a vibrant intersection of function and femininity that has already become a staple among the industry’s most influential tastemakers.
+        </p>
+        <div class="flex justify-center items-center mt-10 sm:mt-20 reveal">
+          <img src="src/images/blog4.png" alt="blog4" class="w-auto">
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-20 px-4 reveal">
+      <div class="bg-[#f5f5f5] px-5 py-5 flex flex-col md:max-w-3xl md:m-auto md:flex-row md:justify-center md:gap-10 md:pt-20">
+        <div>
+          <img src="src/images/blog5.png" alt="blogger" class="w-20 mb-5 md:w-28">
+        </div>
+        <div>
+          <h4 class="font-bold mb-5 text-base font-poppins">Published by Jeremy Harville</h4>
+          <p class="font-instrument text-xl mb-5 tracking-wide md:max-w-md">
+            "True luxury resides in the quiet intervals between trend and tradition. Our latest collection is an exploration of that space—where the weight of Italian wool meets the ethereal lightness of hand-spun silk.""
+          </p>
+          <div class="space-x-5">
+            <i class="fa-brands fa-facebook text-2xl hover:text-[#ff8e78] duration-500 ease-in"></i>
+            <i class="fa-brands fa-square-twitter text-2xl hover:text-[#ff8e78] duration-500 ease-in"></i>
+            <i class="fa-brands fa-square-instagram text-2xl hover:text-[#ff8e78] duration-500 ease-in"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 py-10 max-w-3xl mx-auto mt-20 reveal">
+      <h2 class="text-xl font-semibold mb-6">COMMENTS</h2>
+        <div>
+          <div class="flex gap-4 border-b pb-6">
+            <img src="src/images/cl1.png" alt="customer" class="w-14 h-14 rounded-full">
+            <div>
+              <h3 class="font-semibold">Mary</h3>
+              <p class="text-gray-500 text-sm mt-1">
+                Mira's Clothing is one of the best i've shopped with so far!
+              </p>
+              <p class="text-gray-500 text-sm mt-2">
+                3/15/2026, 5:50 am
+              </p>
+            </div>
+          </div>
+        </div>
+      <div id="commentList"></div>
+    </section>
+   
+    <section class="px-4 py-10 max-w-3xl mx-auto reveal">
+        <h2 class="text-xl font-semibold mb-6">LEAVE A REPLY</h2>
+        <form id="commentForm" class="space-y-4">
+          <div class="grid md:grid-cols-2 gap-4">
+            <input type="text" id="name" placeholder="Name" class="border p-3 w-full">
+            <input type="email" id="email" placeholder="Email" class="border p-3 w-full">
+            <textarea id="comment" placeholder="Leave a reply" class="border p-3 w-full h-22"></textarea>
+            <button type="submit" class="bg-orange-700 text-white px-6 py-3">POST A COMMENT</button>
+          </div>
+        </form>
+    </section>
+
+    <section class="mt-40 pt-20 pb-40 bg-gray-100 reveal">
+      <h2 class="text-center text-xl md:text-xl font-playwrite font-semibold mb-12">MIRA'S CLOTHING</h2>
+        <div class="relative max-w-5xl mx-auto overflow-hidden h-[300px] sm:h-[320px]">
+          <button id="instaPrev" class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full shadow flex items-center justify-center"><i class="ph ph-caret-left"></i></button>
+  
+          <div id="instaTrack" class="flex gap-2 transition-transform duration-500 ease-out">
+            
+          </div>
+  
+          <button id="instaNext" class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white w-10 h-10 rounded-full shadow flex items-center justify-center"><i class="ph ph-caret-right"></i></button>
+        </div>
+    </section>
+
+    <footer class="px-4 bg-black pb-10 sm:pb-10 md:px-0 md:py-10">
+        <div class="grid grid-cols-1 gap-y-16 font-poppins text-gray-300 sm:grid-cols-2 sm:items-center sm:space-y-3 md:grid-cols-3 md:space-x-10 md:max-w-6xl m-auto md:items-start lg:grid-cols-4">
+          <div class="pt-10 md:pt-0">
+            <img src="src/images/logo2.png" alt="footer_logo" class="w-20 h-10 sm:w-28 sm:h-12 md:w-32 md:h-14">
+            <p class="my-5 text-sm sm:text-base sm:max-w-xs">
+              Where elegance meets simplicity. Discover thoughtfully designed collections made to celebrate individuality and understated beauty.
+            </p>
+            <div class="space-x-3">
+              <a href="https://wa.link/nloqjg" target="_blank">
+                <i class="ph ph-whatsapp-logo text-xl bg-gray-600 rounded-full p-2 hover:text-orange-500 duration-500 ease-in cursor-pointer"></i>
+              </a>
+              <i class="ph ph-x-logo text-xl bg-gray-600 rounded-full p-2 hover:text-orange-500 duration-500 ease-in cursor-pointer"></i>
+              <i class="ph ph-instagram-logo text-xl bg-gray-600 rounded-full p-2 hover:text-orange-500 duration-500 ease-in cursor-pointer"></i>
+            </div>
+          </div>
+          <div>
+            <h5 class="mb-5 font-semibold">GET IN TOUCH</h5>
+            <div class="flex flex-row space-x-3 items-center max-w-xs">
+              <i class="ph ph-house text-2xl"></i>
+              <p class="text-sm sm:text-base">
+                550 Main Block, Portharcourt, Rivers State
+              </p>
+            </div>
+            <div class="flex flex-row space-x-3 items-center max-w-xs mt-2 mb-2">
+              <i class="ph ph-envelope text-2xl"></i>
+              <p class="text-sm sm:text-base">
+                mirasclothing@gmail.com
+              </p>
+            </div>
+            <div class="flex flex-row space-x-3 items-center max-w-xs">
+              <i class="ph ph-phone text-2xl"></i>
+              <p class="text-sm sm:text-base">
+                0812-668-0282,
+                0908-558-8783
+              </p>
+            </div>
+          </div>
+          <div>
+            <h5 class="mb-5 font-semibold">CATEGORIES</h5>
+            <ul class="text-sm sm:text-base">
+              <li class="mb-1"><a href="shop.html" class="hover:text-orange-500 duration-500 ease-in">Clothing</a></li> 
+              <li class="mb-1"><a href="shop.html" class="hover:text-orange-500 duration-500 ease-in">Accessories</a></li>
+              <li class="mb-1"><a href="shop.html" class="hover:text-orange-500 duration-500 ease-in">Women</a></li>
+              <li class="mb-1"><a href="shop.html" class="hover:text-orange-500 duration-500 ease-in">Men</a></li>
+              <li class="mb-1"><a href="shop.html" class="hover:text-orange-500 duration-500 ease-in">Shoes</a></li>
+              <li class="mb-1"><a href="shop.html" class="hover:text-orange-500 duration-500 ease-in">New Arrivals</a></li>
+              <li class="mb-1"><a href="shop.html" class="hover:text-orange-500 duration-500 ease-in">Clearance</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="mb-5 font-semibold">INFORMATION</h5>
+            <ul class="text-sm sm:text-base">
+              <li class="mb-1"><a href="shop.html" class="hover:text-orange-500 duration-500 ease-in">Brands</a></li>
+              <li class="mb-1"><a href="contact.html" class="hover:text-orange-500 duration-500 ease-in">Contact Us</a></li>
+              <li class="mb-1"><a href="contact.html" class="hover:text-orange-500 duration-500 ease-in">Gift Certificates</a></li>
+              <li class="mb-1"><a href="about.html" class="hover:text-orange-500 duration-500 ease-in">Affiliate</a></li>
+              <li class="mb-1"><a href="about.html" class="hover:text-orange-500 duration-500 ease-in">Specials</a></li>
+              <li class="mb-1"><a href="contact.html" class="hover:text-orange-500 duration-500 ease-in">Shipping & Delivery</a></li>
+              <li class="mb-1"><a href="account.html" class="hover:text-orange-500 duration-500 ease-in">My Account</a></li>
+            </ul>
+          </div>
+        </div>
+    </footer>
+      
+    <div class="bg-white py-3">
+        <div class="md:flex md:justify-between md:items-center md:max-w-6xl md:m-auto">
+          <div class="text-center mb-5 md:mb-0">
+            <p class="font-poppins text-sm text-gray-500">&copy; Mira's Clothing 2026</p>
+          </div>
+          <div class="flex flex-row pl-10 space-x-5 sm:pl-28 sm:space-x-10">
+            <img src="src/images/mastercard.png" alt="mastercard" class="w-8 h-4">
+            <img src="src/images/americanExpres.png" alt="americanExpres" class="w-8 h-4">
+            <img src="src/images/discover.png" alt="discover" class="w-8 h-4">
+            <img src="src/images/paypal.png" alt="paypal" class="w-8 h-4">
+            <img src="src/images/shopify.png" alt="shopify" class="w-10 h-4">
+            <img src="src/images/visa.png" alt="visa" class="w-8 h-3">
+          </div>
+        </div>
+    </div>
+      
+    <button id="scrollTopBtn" class="fixed bottom-8 right-8 bg-[#e36d3b] text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 z-50 hover:bg-orange-700">
+      <i class="ph ph-arrow-up text-xl"></i>
+    </button>
+
+    <script type="module" src="/src/main.js"></script>
+    <script src="src/blog.js"></script>
+    <script src="src/cart.js"></script>
+    <script type="module" src="/src/wishlist.js"></script>
+</body>
+</html>

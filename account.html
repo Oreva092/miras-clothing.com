@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Page - Mira's Clothing</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <script src="https://kit.fontawesome.com/b55bbba4f4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header id="mainHeader" class="bg-white fixed z-40 top-0 right-0 left-0 pt-2 px-2 sm:top-0 transition-all duration-500 ease-in-out">
+    <nav class="flex flex-row justify-between items-center sm:justify-between sm:pl-2 md:justify-between lg:justify-between lg:px-5">
+      <div>
+        <img src="src/images/logo1.png" alt="logo_1" class="w-20 h-10 sm:w-28 sm:h-12 md:w-32 md:h-14">
+      </div>
+      <ul class="hidden lg:block lg:flex lg:flex-row lg:space-x-16">
+        <li class="font-poppins"><a href="index.html">HOME</a></li>
+        <li class="font-poppins"><a href="shop.html">SHOP</a></li>
+        <li class="font-poppins"><a href="blog.html">BLOG</a></li>
+        <li class="font-poppins"><a href="about.html">ABOUT US</a></li>
+        <li class="font-poppins"><a href="contact.html">CONTACT US</a></li>
+      </ul>
+      <div class="flex flex-row">
+        <div class="ml-auto flex flex-row space-x-5 sm:space-x-10">
+          <a href="wishlist.html">
+            <i id="navHeart" class="icon ph ph-heart cursor-pointer text-2xl sm:text-xl"></i>
+          </a>
+          <a href="cart.html">
+            <i class="icon ph ph-bag cursor-pointer text-2xl sm:text-lg"></i>
+          </a>
+          <div class="relative group">
+            <img id="userAvatar" class="w-8 h-8 rounded-full hidden cursor-pointer" />
+            <i id="userIcon" class="icon ph ph-user cursor-pointer text-2xl sm:text-xl"></i>
+            <div class="absolute right-0 mt-4 w-64 bg-white shadow-xl rounded-md opacity-0 translate-y-3 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+              <div class="p-4 border-b">
+                <p class="text-sm font-poppins font-semibold" id="navUserGreeting">
+                  <a href="signin.html" id="navSignInLink" class="cursor-pointer hover:underline">Sign In</a>
+                </p>
+              </div>
+              <ul class="py-2 text-sm">
+                <li class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer"><a href="account.html">My Account</a></li>
+                <li id="navAdminBtn" class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer hidden"><a href="admin.html">Admin Dashboard</a></li>
+                <li id="navLogoutBtn" class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer hidden">Logout</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="ml-3 mr-3 relative w-6 h-6 sm:ml-5 lg:hidden">
+          <i id="openBtn" class="ph ph-list absolute inset-0 text-2xl cursor-pointer sm:text-xl"></i>
+          <i id="closeBtn" class="ph ph-x absolute inset-0 text-2xl cursor-pointer hidden sm:text-xl"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="fixed z-40 left-2 right-3 bg-[#404040] py-5 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out lg:hidden">
+      <ul class="flex flex-col spacey-4 px-6 text-lg">
+        <li class="pb-5 font-poppins text-sm"><a href="index.html" class="text-white">HOME</a></li>
+        <li class="pb-5 font-poppins text-sm"><a href="shop.html" class="text-white">SHOP</a></li>
+        <li class="pb-5 font-poppins text-sm"><a href="blog.html" class="text-white">BLOG</a></li>
+        <li class="pb-5 font-poppins text-sm"><a href="about.html" class="text-white">ABOUT US</a></li>
+        <li class="font-poppins text-sm"><a href="contact.html" class="text-white">CONTACT US</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="mt-20 min-h-screen bg-[#fafafa] p-6">
+    <div class="max-w-4xl mx-auto">
+  
+      <!-- Profile Header Card -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 mb-6">
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+          
+          <!-- Avatar -->
+          <div id="avatarContainer" class="w-24 h-24 rounded-full bg-[#e36d3b] flex items-center justify-center text-white text-4xl font-bold flex-shrink-0">
+            <img id="accountImage" class="w-24 h-24 rounded-full hidden object-cover" />
+            <span id="accountInitials"></span>
+          </div>
+  
+          <!-- Info -->
+          <div class="text-center sm:text-left flex-1">
+            <h2 id="accountName" class="text-2xl font-poppins font-semibold text-gray-800"></h2>
+            <p id="accountEmail" class="text-gray-500 font-poppins text-sm mt-1"></p>
+            <span class="inline-block mt-3 bg-[#fff0eb] text-[#e36d3b] text-xs font-poppins px-3 py-1 rounded-full">Active Member</span>
+          </div>
+  
+          <!-- Logout -->
+          <button id="logoutBtn" class="flex items-center gap-2 border border-gray-200 font-poppins text-sm px-5 py-2 rounded-full hover:bg-red-50 hover:border-red-300 hover:text-red-500 transition duration-300">
+            <i class="ph ph-sign-out"></i> Logout
+          </button>
+  
+        </div>
+      </div>
+  
+      <!-- Quick Links -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+        <a href="wishlist.html" class="bg-white rounded-xl border border-gray-100 shadow-sm p-5 flex flex-col items-center gap-2 hover:border-[#e36d3b] hover:shadow-md transition duration-300 group">
+          <i class="ph ph-heart text-2xl text-[#e36d3b]"></i>
+          <p class="font-poppins text-sm text-gray-600 group-hover:text-[#e36d3b] transition">Wishlist</p>
+        </a>
+        <a href="cart.html" class="bg-white rounded-xl border border-gray-100 shadow-sm p-5 flex flex-col items-center gap-2 hover:border-[#e36d3b] hover:shadow-md transition duration-300 group">
+          <i class="ph ph-shopping-bag text-2xl text-[#e36d3b]"></i>
+          <p class="font-poppins text-sm text-gray-600 group-hover:text-[#e36d3b] transition">My Cart</p>
+        </a>
+        <a href="shop.html" class="bg-white rounded-xl border border-gray-100 shadow-sm p-5 flex flex-col items-center gap-2 hover:border-[#e36d3b] hover:shadow-md transition duration-300 group">
+          <i class="ph ph-storefront text-2xl text-[#e36d3b]"></i>
+          <p class="font-poppins text-sm text-gray-600 group-hover:text-[#e36d3b] transition">Shop</p>
+        </a>
+        <a href="contact.html" class="bg-white rounded-xl border border-gray-100 shadow-sm p-5 flex flex-col items-center gap-2 hover:border-[#e36d3b] hover:shadow-md transition duration-300 group">
+          <i class="ph ph-headset text-2xl text-[#e36d3b]"></i>
+          <p class="font-poppins text-sm text-gray-600 group-hover:text-[#e36d3b] transition">Support</p>
+        </a>
+      </div>
+  
+      <!-- Orders Section -->
+      <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <h3 class="font-poppins font-semibold text-lg text-gray-800 mb-6 flex items-center gap-2">
+          <i class="ph ph-package text-[#e36d3b]"></i> My Orders
+        </h3>
+        <div id="ordersContainer">
+          <div class="text-center py-10">
+            <i class="ph ph-package text-5xl text-gray-200"></i>
+            <p class="font-poppins text-gray-400 mt-3 text-sm">No orders yet</p>
+            <a href="shop.html" class="inline-block mt-4 bg-[#e36d3b] text-white font-poppins text-sm py-2 px-6 rounded-full hover:bg-orange-700 transition">Start Shopping</a>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section> 
+
+  <button id="scrollTopBtn" class="fixed bottom-8 right-8 bg-[#e36d3b] text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 z-50 hover:bg-orange-700">
+    <i class="ph ph-arrow-up text-xl"></i>
+  </button>
+
+  <script type="module" src="/src/main.js"></script>
+  <script src="src/account.js"></script>
+  <script src="src/cart.js"></script>
+  <script type="module" src="src/wishlist.js"></script>
+</body>
+</html>

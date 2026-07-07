@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <title>Order Successful - Mira's Clothing</title>
+</head>
+<body>
+    <header id="mainHeader" class="bg-white fixed z-40 top-0 right-0 left-0 pt-2 px-2 sm:top-0 transition-all duration-500 ease-in-out">
+        <nav class="flex flex-row justify-between items-center sm:justify-between sm:pl-2 md:justify-between lg:justify-between lg:px-5">
+          <div>
+            <img src="src/images/logo1.png" alt="logo_1" class="w-20 h-10 sm:w-28 sm:h-12 md:w-32 md:h-14">
+          </div>
+          <ul class="hidden lg:block lg:flex lg:flex-row lg:space-x-16">
+            <li class="font-poppins"><a href="index.html">HOME</a></li>
+            <li class="font-poppins"><a href="shop.html">SHOP</a></li>
+            <li class="font-poppins"><a href="blog.html">BLOG</a></li>
+            <li class="font-poppins"><a href="about.html">ABOUT US</a></li>
+            <li class="font-poppins"><a href="contact.html">CONTACT US</a></li>
+          </ul>
+          <div class="flex flex-row">
+            <div class="ml-auto flex flex-row space-x-5 sm:space-x-10">
+              <a href="wishlist.html">
+                <i id="navHeart" class="icon ph ph-heart cursor-pointer text-2xl sm:text-xl"></i>
+              </a>
+              <a href="cart.html">
+                <i class="icon ph ph-bag cursor-pointer text-2xl sm:text-lg"></i>
+              </a>
+              <div class="relative group">
+                <img id="userAvatar" class="w-8 h-8 rounded-full hidden cursor-pointer" />
+                <i id="userIcon" class="icon ph ph-user cursor-pointer text-2xl sm:text-xl"></i>
+                <div class="absolute right-0 mt-4 w-64 bg-white shadow-xl rounded-md opacity-0 translate-y-3 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-300 ease-out z-50">
+                  <div class="p-4 border-b">
+                    <p class="text-sm font-poppins font-semibold" id="navUserGreeting">
+                      <a href="signin.html" id="navSignInLink" class="cursor-pointer hover:underline">Sign In</a>
+                    </p>
+                  </div>
+                  <ul class="py-2 text-sm">
+                    <li class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer"><a href="account.html">My Account</a></li>
+                    <li id="navAdminBtn" class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer hidden"><a href="admin.html">Admin Dashboard</a></li>
+                    <li id="navLogoutBtn" class="font-poppins px-4 py-3 hover:bg-[#e36d3b] hover:text-white duration-500 cursor-pointer hidden">Logout</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="ml-3 mr-3 relative w-6 h-6 sm:ml-5 lg:hidden">
+              <i id="openBtn" class="ph ph-list absolute inset-0 text-2xl cursor-pointer sm:text-xl"></i>
+              <i id="closeBtn" class="ph ph-x absolute inset-0 text-2xl cursor-pointer hidden sm:text-xl"></i>
+            </div>
+          </div>
+        </nav>
+  
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="fixed z-40 left-2 right-3 bg-[#404040] py-5 overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out lg:hidden">
+          <ul class="flex flex-col spacey-4 px-6 text-lg">
+            <li class="pb-5 font-poppins text-sm"><a href="index.html" class="text-white">HOME</a></li>
+            <li class="pb-5 font-poppins text-sm"><a href="shop.html" class="text-white">SHOP</a></li>
+            <li class="pb-5 font-poppins text-sm"><a href="blog.html" class="text-white">BLOG</a></li>
+            <li class="pb-5 font-poppins text-sm"><a href="about.html" class="text-white">ABOUT US</a></li>
+            <li class="font-poppins text-sm"><a href="contact.html" class="text-white">CONTACT US</a></li>
+          </ul>
+        </div>
+    </header>
+
+    <section class="py-20 min-h-screen flex items-center justify-center bg-[#fafafa] px-4">
+        <div class="bg-white rounded-2xl shadow-sm px-10 border border-gray-100 px-20 text-center">
+            <div id="loadingState">
+                <i class="ph ph-circle-notch text-5xl text-[#e36d3b] animate-spin"></i>
+                <p class="font-poppins text-gray-500 mt-4">
+                  Verifying your payment...
+                </p>
+            </div>
+            <div id="successState" class="hidden">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="ph ph-check-circle text-5xl text-green-500"></i>
+                </div>
+                <h2 class="font-poppins font-semibold text-2xl text-gray-800 mb-2">Order Confirmed!</h2>
+                <p class="font-poppins text-gray-500 text-sm mb-2">
+                    Thank you for shopping at Mira's Clothing
+                </p>
+                <p class="font-poppins text-gray-400 text-xs mb-6" id="orderRef"></p>
+
+                <div class="orderItems" aria-colspan="text-left border rounded-xl p-4 mb-6 space-y-3"></div>
+
+                <div class="flex justify-between font-poppins font-semibold text-sm mb-8 px-1">
+                    <span>Total Paid</span>
+                    <span class="text-[#e36d3b]" id="orderTotal"></span>
+                </div>
+
+                <div class="flex flex-col gap-3">
+                    <a href="shop.html" class="bg-[#e36d3b] text-white font-poppins py-2 px-8 rounded-full hover:bg-orange-700 transition">CONTINUE SHOPPING</a>
+                    <a href="account.html" class="border border-gray-200 text-gray-600 font-poppins py-3 px-8 rounded-full hover:bg-gray-50 transition text-sm">View My Account</a>
+                </div>
+            </div>
+
+            <div id="errorState" class="hidden">
+                <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <i class="ph ph-x-circle text-5xl text-red-500"></i>
+                </div>
+                <h2 class="font-poppins font-semibold text-2xl text-gray-800 mb-2">Payment Failed</h2>
+                <p class="font-poppins text-gray-500 text-sm mb-6">
+                  Something went wrong with your payment.
+                </p>
+                <a href="cart.html" class="bg-[#e36d3b] text-white font-poppins py-3 px-8 rounded-full hover;bg-orange-700 transition">
+                  BACK TO CART
+                </a>
+            </div>
+        </div>
+    </section>    
+
+    <script type="module" src="src/main.js"></script>
+    <script src="src/cart.js"></script>
+    <script src="src/wishlist.js"></script>
+    <script src="src/ordersuccess.js"></script>
+</body>
+</html>
