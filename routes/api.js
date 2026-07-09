@@ -43,27 +43,28 @@ router.post('/subscribe', async (req, res) => {
     const newSubscriber = new Subscriber({ email });
     await newSubscriber.save();
 
-    try {
-      await transporter.sendMail({
-        from: `"Mira's Clothing" <${process.env.BREVO_SMTP_USER}>`,
-        to: email,
-        subject: "You're subscribed to Mira's Clothing! 🎉",
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto;">
-            <h2 style="color: #e36d3b;">Welcome to Mira's Clothing!</h2>
-            <p>Thank you for subscribing to our newsletter.</p>
-            <p>You'll be the first to know about new arrivals, promotions and more!</p>
-            <br/>
-            <p style="color: #636363;">— The Mira's Clothing Team</p>
-          </div>
-        `
-      });
-      console.log('✅ Confirmation email sent to:', email);
-    } catch (emailError) {
-      console.error('Email sending failed:', emailError.message);
-    }
+    // Respond immediately — don't wait for the email to send
+    res.json({ success: true, message: "You've successfully subscribed!" });
 
-    return res.json({ success: true, message: "You've successfully subscribed!" });
+    // Send confirmation email in the background
+    transporter.sendMail({
+      from: `"Mira's Clothing" <${process.env.BREVO_SMTP_USER}>`,
+      to: email,
+      subject: "You're subscribed to Mira's Clothing! 🎉",
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto;">
+          <h2 style="color: #e36d3b;">Welcome to Mira's Clothing!</h2>
+          <p>Thank you for subscribing to our newsletter.</p>
+          <p>You'll be the first to know about new arrivals, promotions and more!</p>
+          <br/>
+          <p style="color: #636363;">— The Mira's Clothing Team</p>
+        </div>
+      `
+    }).then(() => {
+      console.log('✅ Confirmation email sent to:', email);
+    }).catch((emailError) => {
+      console.error('Email sending failed:', emailError.message);
+    });
 
   } catch (error) {
     console.error('Subscribe error:', error.message);
@@ -83,33 +84,33 @@ router.post('/contact', async (req, res) => {
     const newContact = new Contact({ name, phone, message });
     await newContact.save();
 
-    try {
-      await transporter.sendMail({
-        from: `"Mira's Clothing Contact Form" <${process.env.BREVO_SMTP_USER}>`,
-        to: process.env.EMAIL_USER,
-        subject: `New Contact Message from ${name}`,
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto;">
-            <h2 style="color: #e36d3b;">New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
-            <p><strong>Message:</strong> ${message}</p>
-          </div>
-        `
-      });
-      console.log('✅ Contact email sent!');
-    } catch (emailError) {
-      console.error('Contact email failed:', emailError.message);
-    }
+    // Respond immediately — don't wait for the email to send
+    res.json({ success: true, message: 'Your message has been sent successfully!' });
 
-    return res.json({ success: true, message: 'Your message has been sent successfully!' });
+    // Send notification email in the background
+    transporter.sendMail({
+      from: `"Mira's Clothing Contact Form" <${process.env.BREVO_SMTP_USER}>`,
+      to: process.env.EMAIL_USER,
+      subject: `New Contact Message from ${name}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto;">
+          <h2 style="color: #e36d3b;">New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Message:</strong> ${message}</p>
+        </div>
+      `
+    }).then(() => {
+      console.log('✅ Contact email sent!');
+    }).catch((emailError) => {
+      console.error('Contact email failed:', emailError.message);
+    });
 
   } catch (error) {
     console.error('Contact error:', error.message);
     return res.status(500).json({ success: false, message: 'Something went wrong. Please try again.' });
   }
 });
-
 
 // ✅ REGISTER ROUTE
 router.post('/register', async (req, res) => {
