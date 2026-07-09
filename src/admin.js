@@ -60,6 +60,7 @@ async function loadProducts() {
     }
 
     el.innerHTML = `
+    <div class="overflow-x-auto">
       <table class="w-full min-w-[700px]">
         <thead class="bg-gray-50">
           <tr>
@@ -95,6 +96,7 @@ async function loadProducts() {
           `).join('')}
         </tbody>
       </table>
+    </div>  
     `;
   } catch (error) {
     console.error('Load products error:', error);
