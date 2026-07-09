@@ -342,12 +342,12 @@ sortSelect.addEventListener('change', function() {
 document.addEventListener("DOMContentLoaded", function () {
 
     const instaImages = [
-      "src/images/slide1.png",
-      "src/images/slide2.png",
-      "src/images/slide3.png",
-      "src/images/slide4.png",
-      "src/images/slide5.png",
-      "src/images/hero-image.png",
+      "/images/slide1.png",
+      "/images/slide2.png",
+      "/images/slide3.png",
+      "/images/slide4.png",
+      "/images/slide5.png",
+      "/images/hero-image.png",
     ];
   
     const track = document.getElementById("instaTrack");

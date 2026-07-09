@@ -302,9 +302,9 @@ if (logoTrack && nextBtn && prevBtn) {
 
 // Blog cards
 const blogData = [
-  { date: "Nov 24, 2025", title: "The Return of Tailored Minimalism", desc: "Sharp silhouettes and neutral palettes are redefining everyday elegance. This season is about clean lines, refined fabrics, and effortless confidence.", image: "src/images/blog1.png" },
-  { date: "Dec 10, 2025", title: "Statement Accessories That Elevate Any Look", desc: "From sculptural handbags to bold metallic accents, discover the pieces transforming simple outfits into unforgettable statements.", image: "src/images/blog2.png" },
-  { date: "Jan 10, 2026", title: "Soft Layers for Transitional Weather", desc: "Lightweight knits, structured blazers, and flowing textures come together for a layered approach that balances comfort with sophistication.", image: "src/images/blog3.png" }
+  { date: "Nov 24, 2025", title: "The Return of Tailored Minimalism", desc: "Sharp silhouettes and neutral palettes are redefining everyday elegance. This season is about clean lines, refined fabrics, and effortless confidence.", image: "/images/blog1.png" },
+  { date: "Dec 10, 2025", title: "Statement Accessories That Elevate Any Look", desc: "From sculptural handbags to bold metallic accents, discover the pieces transforming simple outfits into unforgettable statements.", image: "/images/blog2.png" },
+  { date: "Jan 10, 2026", title: "Soft Layers for Transitional Weather", desc: "Lightweight knits, structured blazers, and flowing textures come together for a layered approach that balances comfort with sophistication.", image: "/images/blog3.png" }
 ];
 
 const blogContainer = document.getElementById("blogContainer");
@@ -328,12 +328,12 @@ if (blogContainer) {
 // Instagram slider
 document.addEventListener("DOMContentLoaded", function () {
   const instaImages = [
-    "src/images/slide1.png",
-    "src/images/slide2.png",
-    "src/images/slide3.png",
-    "src/images/slide4.png",
-    "src/images/slide5.png",
-    "src/images/hero-image.png",
+    "/images/slide1.png",
+    "/images/slide2.png",
+    "/images/slide3.png",
+    "/images/slide4.png",
+    "/images/slide5.png",
+    "/images/hero-image.png",
   ];
 
   const track = document.getElementById("instaTrack");
@@ -424,7 +424,8 @@ if (subscribeForm) {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const button = subscribeForm.querySelector('button');
-    button.textContent = 'Subscribing...';
+    const originalText = button.textContent;
+    button.innerHTML = '<i class="ph ph-circle-notch animate-spin"></i>';
     button.disabled = true;
 
     try {
@@ -456,7 +457,7 @@ if (subscribeForm) {
       document.body.appendChild(popup);
       setTimeout(() => popup.remove(), 4000);
     } finally {
-      button.textContent = 'SUBSCRIBE';
+      button.innerHTML = originalText;
       button.disabled = false;
     }
   });

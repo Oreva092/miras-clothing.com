@@ -60,7 +60,7 @@ async function loadProducts() {
     }
 
     el.innerHTML = `
-      <table class="w-full">
+      <table class="w-full min-w-[700px]">
         <thead class="bg-gray-50">
           <tr>
             <th class="font-poppins text-left px-4 py-3 text-xs text-gray-500">PRODUCT</th>
@@ -173,7 +173,8 @@ async function loadOrders() {
     }
 
     el.innerHTML = `
-      <table class="w-full">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[750px]">
         <thead class="bg-gray-50">
           <tr>
             <th class="font-poppins text-left px-4 py-3 text-xs text-gray-500">EMAIL</th>
@@ -197,6 +198,7 @@ async function loadOrders() {
           `).join('')}
         </tbody>
       </table>
+    </div>  
     `;
   } catch (error) {
     console.error('Load orders error:', error);
@@ -216,7 +218,8 @@ async function loadSubscribers() {
     }
 
     el.innerHTML = `
-      <table class="w-full">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[600px]"
         <thead class="bg-gray-50">
           <tr>
             <th class="font-poppins text-left px-4 py-3 text-xs text-gray-500">EMAIL</th>
@@ -232,6 +235,7 @@ async function loadSubscribers() {
           `).join('')}
         </tbody>
       </table>
+    </div>  
     `;
   } catch (error) {
     console.error('Load subscribers error:', error);
@@ -251,7 +255,8 @@ async function loadUsers() {
     }
 
     el.innerHTML = `
-      <table class="w-full">
+    <div class="overflow-x-auto">
+      <table class="w-full min-w-[700px]">
         <thead class="bg-gray-50">
           <tr>
             <th class="font-poppins text-left px-4 py-3 text-xs text-gray-500">NAME</th>
@@ -275,6 +280,7 @@ async function loadUsers() {
           `).join('')}
         </tbody>
       </table>
+    </div>  
     `;
   } catch (error) {
     console.error('Load users error:', error);
