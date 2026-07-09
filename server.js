@@ -98,12 +98,13 @@ app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'em
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: `${process.env.FRONTEND_URL}/signin.html` }),
   (req, res) => {
+    console.log('🔍 req.user in callback:', req.user);
     const user = {
-      id: req.user._id,
+      id: req.user._id ? req.user._id.toString() : null,
       name: req.user.name,
       email: req.user.email,
       avatar: req.user.avatar,
-      isAdmin: req.user.isAdmin
+      isAdmin: req.user.isAdmin || false
     };
     const userData = encodeURIComponent(JSON.stringify(user));
     res.send(`
