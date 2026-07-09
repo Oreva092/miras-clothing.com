@@ -391,7 +391,7 @@ router.post('/payment/initialize', async (req, res) => {
         email,
         amount: amount * 100, // Paystack uses kobo
         currency: 'NGN',
-        callback_url: 'http://localhost:5173/order-success.html',
+        callback_url: `${process.env.FRONTEND_URL}/order-success.html`,
         metadata: {
           cartItems: JSON.stringify(cartItems)
         }
